@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaushalya Udani Jayasingha | Flutter Mobile Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: '#0B0F19',
+                        surface: '#111827',
+                        surfaceLight: '#1E293B',
+                        flutterBlue: '#027DFD',
+                        flutterSky: '#38BDF8',
+                        fintechEmerald: '#10B981',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        /* Subtle Engineering Grid Background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.35);
+            box-shadow: 0 12px 32px -10px rgba(2, 125, 253, 0.22);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38BDF8;
+        }
+        /* Phone frame glare & bezel */
+        .phone-bezel {
+            box-shadow: 
+                0 0 0 2px #1E293B,
+                0 0 0 6px #0F172A,
+                0 25px 60px -15px rgba(2, 125, 253, 0.35);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-slate-100 antialiased selection:bg-flutterBlue selection:text-white">
+
+    <!-- Ambient Background Glow Orbs -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-flutterBlue/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-flutterSky/10 rounded-full blur-[140px]"></div>
+        <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-fintechEmerald/10 rounded-full blur-[130px]"></div>
+        <div class="absolute inset-0 bg-grid-pattern"></div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-obsidian/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Brand Logo -->
+                <a href="#top" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-flutterBlue to-flutterSky flex items-center justify-center shadow-lg shadow-flutterBlue/25 group-hover:scale-105 transition-transform">
+                        <!-- Custom Flutter-inspired geometric dart icon -->
+                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-base sm:text-lg tracking-tight text-white block leading-none">Kaushalya<span class="text-flutterSky">.dev</span></span>
+                        <span class="font-mono text-[11px] text-slate-400 tracking-wider">FLUTTER ENGINEER</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+                    <a href="#services" class="hover:text-flutterSky transition-colors">What I Do</a>
+                    <a href="#projects" class="hover:text-flutterSky transition-colors">Featured Apps</a>
+                    <a href="#skills" class="hover:text-flutterSky transition-colors">Tech Stack</a>
+                    <a href="#experience" class="hover:text-flutterSky transition-colors">Experience</a>
+                    <a href="#why-me" class="hover:text-flutterSky transition-colors">Why Me</a>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openContactDrawer()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-flutterBlue hover:bg-blue-500 text-white text-sm font-semibold transition-all shadow-lg shadow-flutterBlue/25 hover:shadow-flutterBlue/40">
+                        <i class="fa-solid fa-paper-plane text-xs"></i>
+                        <span>Let's Build Your App</span>
+                    </button>
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-surface border border-white/10 text-slate-200 hover:text-flutterSky">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-surface/95 backdrop-blur-xl px-4 py-4 space-y-2">
+            <a href="#services" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-white/5 hover:text-flutterSky font-medium">What I Do</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-white/5 hover:text-flutterSky font-medium">Featured Projects (7)</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-white/5 hover:text-flutterSky font-medium">Technical Skills</a>
+            <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-white/5 hover:text-flutterSky font-medium">Experience & Education</a>
+            <a href="#why-me" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-white/5 hover:text-flutterSky font-medium">Why Work With Me</a>
+            <button onclick="openContactDrawer()" class="w-full mt-2 py-3 rounded-xl bg-flutterBlue text-white font-semibold text-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-rocket"></i> Let's Build Your App
+            </button>
+        </div>
+    </header>
+
+    <main id="top" class="relative z-10">
+        <!-- 1. HERO SECTION -->
+        <section class="pt-12 pb-20 lg:pt-20 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Column: Identity, Bio, Badges & Actions -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Availability & Location Pill -->
+                    <div class="inline-flex flex-wrap items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface border border-white/10 text-xs font-mono text-slate-300">
+                        <span class="flex items-center gap-1.5 text-fintechEmerald font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-fintechEmerald animate-ping"></span>
+                            AVAILABLE FOR COLLABORATION
+                        </span>
+                        <span class="text-slate-600">|</span>
+                        <span class="flex items-center gap-1.5 text-slate-300">
+                            <i class="fa-solid fa-location-dot text-flutterSky"></i>
+                            Sri Lanka
+                        </span>
+                    </div>
+
+                    <!-- Headline -->
+                    <div class="space-y-3">
+                        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.12]">
+                            Kaushalya Udani <span class="text-transparent bg-clip-text bg-gradient-to-r from-flutterBlue via-flutterSky to-fintechEmerald">Jayasingha</span>
+                        </h1>
+                        <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-200 flex items-center gap-2.5">
+                            <span>Flutter Mobile Software Engineer</span>
+                        </h2>
+                        <p class="font-mono text-xs sm:text-sm text-flutterSky bg-flutterBlue/10 border border-flutterBlue/25 rounded-xl px-4 py-2.5 inline-block">
+                            3+ Years of Professional Experience &nbsp;|&nbsp; Flutter &nbsp;|&nbsp; Dart &nbsp;|&nbsp; Fintech &nbsp;|&nbsp; Mobile Applications
+                        </p>
+                    </div>
+
+                    <!-- Exact Professional Bio -->
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        I’m a Mobile Software Engineer specializing in <strong class="text-white font-semibold">Flutter and Dart</strong>, with more than 3 years of professional experience building scalable, secure, and user-friendly mobile applications. I have experience working on <span class="text-flutterSky">fintech, digital banking, marketplace, and on-demand delivery applications</span>. I focus on clean architecture, maintainable code, application security, performance, and delivering solutions that meet real business requirements.
+                    </p>
+
+                    <!-- Key Architecture & Security Metrics Bar -->
+                    <div class="grid grid-cols-3 gap-3 sm:gap-5 pt-2 max-w-xl">
+                        <div class="glass-card rounded-2xl p-3.5 sm:p-4">
+                            <div class="font-display font-extrabold text-2xl sm:text-3xl text-white">3+ <span class="text-flutterSky text-lg">Yrs</span></div>
+                            <div class="text-xs text-slate-400 mt-0.5">Flutter & Dart Production</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-3.5 sm:p-4">
+                            <div class="font-display font-extrabold text-2xl sm:text-3xl text-white">7+ <span class="text-flutterSky text-lg">Apps</span></div>
+                            <div class="text-xs text-slate-400 mt-0.5">Banking & Delivery Systems</div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-3.5 sm:p-4">
+                            <div class="font-display font-extrabold text-2xl sm:text-3xl text-fintechEmerald">100%</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Clean Arch & App Security</div>
+                        </div>
+                    </div>
+
+                    <!-- Primary Action Buttons -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-flutterBlue to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-semibold text-sm sm:text-base shadow-lg shadow-flutterBlue/30 transition-all flex items-center gap-2.5">
+                            <span>Explore 7 Featured Apps</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl bg-surface hover:bg-surfaceLight border border-white/15 text-slate-100 font-semibold text-sm sm:text-base transition-all flex items-center gap-2.5">
+                            <i class="fa-solid fa-comments text-flutterSky"></i>
+                            <span>Discuss a Project</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Mobile App Showcase Device -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <!-- Interactive App Switcher Pills above Phone -->
+                    <div class="flex items-center gap-2 mb-4 bg-surface/90 p-1.5 rounded-2xl border border-white/10 shadow-lg">
+                        <button onclick="switchPhonePreview('digigrow')" id="tab-digigrow" class="phone-tab-btn px-3 py-1.5 rounded-xl text-xs font-mono font-semibold bg-flutterBlue text-white transition-all">
+                            EPIC DigiGrow
+                        </button>
+                        <button onclick="switchPhonePreview('smartpay')" id="tab-smartpay" class="phone-tab-btn px-3 py-1.5 rounded-xl text-xs font-mono font-semibold text-slate-400 hover:text-white transition-all">
+                            BOC SmartPay
+                        </button>
+                        <button onclick="switchPhonePreview('ting')" id="tab-ting" class="phone-tab-btn px-3 py-1.5 rounded-xl text-xs font-mono font-semibold text-slate-400 hover:text-white transition-all">
+                            Ting Ecosystem
+                        </button>
+                    </div>
+
+                    <!-- Interactive Smartphone Mockup Frame -->
+                    <div class="w-full max-w-[330px] rounded-[2.6rem] bg-obsidian p-3 phone-bezel animate-float relative">
+                        <!-- Dynamic Island / Notch -->
+                        <div class="w-28 h-5 bg-black rounded-full mx-auto mb-2 flex items-center justify-between px-3">
+                            <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+                            <span class="w-2 h-2 rounded-full bg-fintechEmerald/80"></span>
+                        </div>
+
+                        <!-- Screen Content Container -->
+                        <div id="phone-screen-content" class="rounded-[2rem] bg-gradient-to-b from-slate-900 via-slate-900 to-obsidian border border-white/10 p-4 min-h-[430px] flex flex-col justify-between transition-all duration-300">
+                            <!-- Populated by JS on load -->
+                        </div>
+
+                        <!-- Home Gesture Bar -->
+                        <div class="w-28 h-1 bg-slate-600 rounded-full mx-auto mt-3"></div>
+                    </div>
+                    <p class="text-[11px] font-mono text-slate-400 mt-3 text-center">
+                        <i class="fa-solid fa-hand-pointer text-flutterSky mr-1"></i> Tap tabs above to inspect live mobile architecture previews
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WHAT I DO (15 Services & Capabilities) -->
+        <section id="services" class="py-20 border-t border-white/5 bg-surface/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-widest text-flutterSky font-semibold">Capabilities & Engineering Services</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2">What I Do</h2>
+                    </div>
+                    <p class="text-slate-400 text-sm sm:text-base max-w-xl">
+                        End-to-end mobile engineering from pixel-accurate Figma implementation and Clean Architecture setup to bank-grade security hardening and Play Store / App Store deployment.
+                    </p>
+                </div>
+
+                <!-- 15 Services Responsive Grid -->
+                <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
+                    <!-- Rendered dynamically via JS to guarantee all 15 items are crisp and uniform -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FEATURED PROJECTS (All 7 Production Apps with Filtering & Detail Modal) -->
+        <section id="projects" class="py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6 reveal">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-widest text-fintechEmerald font-semibold">Production Portfolio</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2">Featured Projects</h2>
+                        <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+                            Enterprise digital banking platforms, secure fintech wallets, real-time 3-sided delivery ecosystems, and consumer applications built with Flutter & Dart.
+                        </p>
+                    </div>
+
+                    <!-- Interactive Category Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 bg-surface p-1.5 rounded-2xl border border-white/10 self-start">
+                        <button onclick="filterProjects('all')" data-filter="all" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-flutterBlue text-white transition-all">
+                            All Apps (7)
+                        </button>
+                        <button onclick="filterProjects('fintech')" data-filter="fintech" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                            Fintech & Banking (3)
+                        </button>
+                        <button onclick="filterProjects('delivery')" data-filter="delivery" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                            Marketplace & Delivery (3)
+                        </button>
+                        <button onclick="filterProjects('consumer')" data-filter="consumer" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                            Consumer Services (1)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                    <!-- Rendered dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TECHNICAL SKILLS MATRIX -->
+        <section id="skills" class="py-20 border-t border-white/5 bg-surface/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 reveal">
+                    <span class="font-mono text-xs uppercase tracking-widest text-flutterSky font-semibold">Core Engineering Stack</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2">Technical Skills</h2>
+                    <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+                        Battle-tested frameworks, state management architectures, real-time networking protocols, and mobile security defenses.
+                    </p>
+                </div>
+
+                <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                    <!-- Rendered dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. EXPERIENCE & EDUCATION TIMELINE -->
+        <section id="experience" class="py-20 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Experience Column (8 cols) -->
+                    <div class="lg:col-span-8 reveal">
+                        <span class="font-mono text-xs uppercase tracking-widest text-flutterSky font-semibold">Career Trajectory</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2 mb-8">My Experience</h2>
+
+                        <div class="relative border-l-2 border-slate-800 ml-3 sm:ml-4 space-y-8">
+                            
+                            <!-- Role 1: Epic Lanka (Jul 2026 - Present) -->
+                            <div class="relative pl-7 sm:pl-9">
+                                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-flutterBlue ring-4 ring-flutterBlue/25"></span>
+                                <div class="glass-card rounded-2xl p-6">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <h3 class="font-display font-bold text-lg sm:text-xl text-white">Software Engineer — <span class="text-flutterSky">Epic Lanka</span></h3>
+                                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-fintechEmerald/15 text-fintechEmerald border border-fintechEmerald/30 font-semibold">
+                                            Jul 2026 – Present
+                                        </span>
+                                    </div>
+                                    <ul class="space-y-2.5 text-sm text-slate-300 mt-3 leading-relaxed">
+                                        <li class="flex items-start gap-2.5">
+                                            <i class="fa-solid fa-caret-right text-flutterSky mt-1"></i>
+                                            <span>Developing Flutter-based mobile features for <strong class="text-white">EPIC DigiGrow</strong>, a digital banking platform for SME and corporate customers. Contributing to fintech features including Invoice Management, covering invoice creation, approval workflows, payment tracking, LankaQR/payment links, and invoice lifecycle management.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2.5">
+                                            <i class="fa-solid fa-caret-right text-flutterSky mt-1"></i>
+                                            <span>Developing Flutter-based applications for marketplace and delivery solutions, working with real-time communication, REST APIs, location services, and scalable mobile architectures.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Role 2: Rockland Distilleries / Edine Services (Dec 2024 - Feb 2026) -->
+                            <div class="relative pl-7 sm:pl-9">
+                                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-flutterSky ring-4 ring-slate-800"></span>
+                                <div class="glass-card rounded-2xl p-6">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <h3 class="font-display font-bold text-lg sm:text-xl text-white">Software Engineer — <span class="text-flutterSky">Rockland Distilleries / Edine Services</span></h3>
+                                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                                            Dec 2024 – Feb 2026
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+                                        Developing Flutter-based applications for marketplace and delivery solutions, working with real-time communication, REST APIs, location services, and scalable mobile architectures.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Role 3: Epic Lanka (Feb 2024 - Dec 2024) -->
+                            <div class="relative pl-7 sm:pl-9">
+                                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-slate-800"></span>
+                                <div class="glass-card rounded-2xl p-6">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <h3 class="font-display font-bold text-lg sm:text-xl text-white">Software Engineer — <span class="text-flutterSky">Epic Lanka</span></h3>
+                                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                                            Feb 2024 – Dec 2024
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+                                        Worked on enterprise fintech and mobile applications, focusing on Flutter development, application security, performance, and cross-functional collaboration.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Role 4: Associate Software Engineer - Epic Lanka (Feb 2023 - Feb 2024) -->
+                            <div class="relative pl-7 sm:pl-9">
+                                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-slate-800"></span>
+                                <div class="glass-card rounded-2xl p-6">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <h3 class="font-display font-bold text-lg sm:text-xl text-white">Associate Software Engineer — <span class="text-flutterSky">Epic Lanka</span></h3>
+                                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                                            Feb 2023 – Feb 2024
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+                                        Contributed to mobile application development, testing, debugging, code reviews, Agile development, and end-to-end project delivery.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Role 5: Intern Software Engineer - Epic Lanka (Aug 2022 - Feb 2023) -->
+                            <div class="relative pl-7 sm:pl-9">
+                                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-800"></span>
+                                <div class="glass-card rounded-2xl p-6">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                        <h3 class="font-display font-bold text-lg sm:text-xl text-white">Intern Software Engineer — <span class="text-flutterSky">Epic Lanka</span></h3>
+                                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/10">
+                                            Aug 2022 – Feb 2023
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+                                        Started my professional Flutter development journey, working on mobile applications and developing strong foundations in Flutter, Dart, clean coding, and software development practices.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Education & Security Focus Column (4 cols) -->
+                    <div class="lg:col-span-4 space-y-8 reveal">
+                        <div>
+                            <span class="font-mono text-xs uppercase tracking-widest text-fintechEmerald font-semibold">Academic Foundation</span>
+                            <h2 class="font-display font-extrabold text-3xl text-white mt-2 mb-6">Education</h2>
+
+                            <div class="glass-card rounded-2xl p-6 border-t-4 border-t-flutterBlue">
+                                <div class="w-12 h-12 rounded-xl bg-flutterBlue/15 text-flutterSky flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                                </div>
+                                <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-flutterBlue/15 text-flutterSky font-semibold">
+                                    2018 – 2022
+                                </span>
+                                <h3 class="font-display font-bold text-lg text-white mt-3 leading-snug">
+                                    Bachelor of Information & Communication Technology (Hons)
+                                </h3>
+                                <p class="text-sm text-fintechEmerald font-medium mt-1.5">
+                                    Specialization: Software Technologies
+                                </p>
+                                <p class="text-sm text-slate-400 mt-3 flex items-center gap-2">
+                                    <i class="fa-solid fa-building-columns text-slate-500"></i>
+                                    <span>South Eastern University of Sri Lanka</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Fintech Security Highlight Box -->
+                        <div class="glass-card rounded-2xl p-6 bg-gradient-to-br from-surface to-emerald-950/20 border border-fintechEmerald/25">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-fintechEmerald/15 text-fintechEmerald flex items-center justify-center">
+                                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                                </div>
+                                <h3 class="font-display font-bold text-base text-white">Enterprise Fintech Security</h3>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                                Experienced in hardening high-stakes banking apps against reverse engineering, runtime tampering, and man-in-the-middle attacks:
+                            </p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-fintechEmerald/10 text-fintechEmerald border border-fintechEmerald/25">AES Encryption</span>
+                                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-fintechEmerald/10 text-fintechEmerald border border-fintechEmerald/25">SSL Pinning</span>
+                                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-fintechEmerald/10 text-fintechEmerald border border-fintechEmerald/25">Root/Jailbreak Detection</span>
+                                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-fintechEmerald/10 text-fintechEmerald border border-fintechEmerald/25">Hooking & Tamper Protection</span>
+                                <span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-fintechEmerald/10 text-fintechEmerald border border-fintechEmerald/25">Code Obfuscation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. WHY WORK WITH ME & CONTACT CTA ("Let's Build Your App") -->
+        <section id="why-me" class="py-20 border-t border-white/5 bg-surface/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Why Work With Me Grid -->
+                <div class="mb-20 reveal">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <span class="font-mono text-xs uppercase tracking-widest text-flutterSky font-semibold">Value Proposition</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-2">Why Work With Me?</h2>
+                        <p class="text-slate-400 text-sm sm:text-base mt-2">
+                            Combining clean software engineering principles with real-world domain expertise in banking and real-time logistics.
+                        </p>
+                    </div>
+
+                    <div id="why-me-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        <!-- Rendered via JS for all 10 checkmark items -->
+                    </div>
+                </div>
+
+                <!-- Let's Build Your App CTA Card -->
+                <div id="contact" class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12 border border-flutterBlue/30 bg-gradient-to-br from-surface via-surface to-blue-950/30 reveal">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        
+                        <!-- Left Pitch -->
+                        <div class="lg:col-span-5 space-y-5">
+                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-flutterBlue/15 text-flutterSky font-mono text-xs font-semibold">
+                                <i class="fa-solid fa-bolt"></i> READY TO START
+                            </span>
+                            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white leading-tight">
+                                Let's Build Your App
+                            </h2>
+                            <p class="text-slate-300 text-base leading-relaxed">
+                                Have a mobile app idea, an existing Flutter application, or a project that needs improvement? Let's discuss your requirements and build a reliable, scalable mobile solution together.
+                            </p>
+
+                            <div class="pt-2 space-y-3 border-t border-white/10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-flutterBlue/15 text-flutterSky flex items-center justify-center">
+                                        <i class="fa-solid fa-user-check"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-display font-bold text-white text-sm">Kaushalya Udani Jayasingha</div>
+                                        <div class="text-xs text-slate-400">Flutter Mobile Software Engineer • Sri Lanka</div>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Copy Summary Button -->
+                                <button type="button" onclick="copyProfileSummary()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-200 transition-all">
+                                    <i class="fa-regular fa-copy text-flutterSky"></i>
+                                    <span>Copy Engineer Profile & Tech Stack</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Interactive Project Inquiry Form -->
+                        <div class="lg:col-span-7 bg-obsidian/80 border border-white/10 rounded-2xl p-6 sm:p-8">
+                            <form id="project-inquiry-form" onsubmit="handleProjectInquiry(event)" class="space-y-5">
+                                <div>
+                                    <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2.5">Select Project Scope</label>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="scope-selector">
+                                        <button type="button" onclick="selectScope(this, 'New App from Scratch')" class="scope-pill active px-3 py-2.5 rounded-xl text-xs font-semibold border border-flutterBlue bg-flutterBlue/20 text-white text-center transition-all">
+                                            New App
+                                        </button>
+                                        <button type="button" onclick="selectScope(this, 'Fintech / App Security')" class="scope-pill px-3 py-2.5 rounded-xl text-xs font-semibold border border-white/10 bg-surface text-slate-400 hover:text-white text-center transition-all">
+                                            Fintech / Security
+                                        </button>
+                                        <button type="button" onclick="selectScope(this, 'Existing App Upgrade')" class="scope-pill px-3 py-2.5 rounded-xl text-xs font-semibold border border-white/10 bg-surface text-slate-400 hover:text-white text-center transition-all">
+                                            App Maintenance
+                                        </button>
+                                        <button type="button" onclick="selectScope(this, 'Figma to Flutter UI')" class="scope-pill px-3 py-2.5 rounded-xl text-xs font-semibold border border-white/10 bg-surface text-slate-400 hover:text-white text-center transition-all">
+                                            Figma to Flutter
+                                        </button>
+                                    </div>
+                                    <input type="hidden" id="selected-scope" value="New App from Scratch">
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="client-name" class="block text-xs font-medium text-slate-300 mb-1.5">Your Name / Organization *</label>
+                                        <input type="text" id="client-name" required placeholder="e.g. Kasun Perera / FinTech Co." class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-flutterSky transition-colors">
+                                    </div>
+                                    <div>
+                                        <label for="client-email" class="block text-xs font-medium text-slate-300 mb-1.5">Email Address *</label>
+                                        <input type="email" id="client-email" required placeholder="you@company.com" class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-flutterSky transition-colors">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="project-details" class="block text-xs font-medium text-slate-300 mb-1.5">Project Requirements *</label>
+                                    <textarea id="project-details" rows="3" required placeholder="Tell me about your mobile app idea, target platforms (Android/iOS), APIs, or timeline..." class="w-full px-4 py-3 rounded-xl bg-surface border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-flutterSky transition-colors"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-flutterBlue to-sky-500 hover:from-blue-500 hover:to-sky-400 text-white font-semibold text-sm sm:text-base shadow-lg shadow-flutterBlue/25 transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Send Project Brief to Kaushalya</span>
+                                </button>
+                            </form>
+
+                            <!-- Confirmation State -->
+                            <div id="inquiry-success" class="hidden text-center py-6 space-y-4">
+                                <div class="w-14 h-14 rounded-2xl bg-fintechEmerald/20 text-fintechEmerald flex items-center justify-center mx-auto text-2xl">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-white">Project Brief Ready!</h3>
+                                <p class="text-sm text-slate-300 max-w-md mx-auto" id="inquiry-summary-text"></p>
+                                <div class="flex flex-wrap justify-center gap-3 pt-2">
+                                    <button type="button" onclick="copyFormattedBrief()" class="px-4 py-2.5 rounded-xl bg-flutterBlue text-white text-xs font-semibold flex items-center gap-2">
+                                        <i class="fa-regular fa-copy"></i> Copy Brief to Clipboard
+                                    </button>
+                                    <button type="button" onclick="resetInquiryForm()" class="px-4 py-2.5 rounded-xl bg-surface border border-white/10 text-slate-300 text-xs font-semibold">
+                                        Send Another Inquiry
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-obsidian py-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-flutterBlue/20 text-flutterSky flex items-center justify-center font-mono font-bold text-sm">
+                    KU
+                </div>
+                <div>
+                    <div class="font-display font-bold text-sm text-white">Kaushalya Udani Jayasingha</div>
+                    <div class="text-xs text-slate-400">Flutter Mobile Software Engineer • Sri Lanka</div>
+                </div>
+            </div>
+            <div class="font-mono text-xs text-slate-500 text-center sm:text-right">
+                Built with Clean Architecture Principles • Flutter & Dart Specialist
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT DETAIL MODAL -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
+        <div class="glass-card bg-surface border border-white/15 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeProjectModal()" aria-label="Close modal" class="absolute top-5 right-5 w-10 h-10 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modal-body-content">
+                <!-- Populated dynamically when a project card is clicked -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION BANNER -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-surface border border-fintechEmerald/40 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3">
+            <i class="fa-solid fa-circle-check text-fintechEmerald text-lg"></i>
+            <span id="toast-message" class="text-sm font-medium">Copied to clipboard!</span>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. STRUCTURED PORTFOLIO DATA (100% Accurate)
+        // ==========================================
+
+        const phonePreviews = {
+            digigrow: {
+                badge: 'SME DIGITAL BANKING',
+                badgeColor: 'text-flutterSky bg-flutterBlue/20 border-flutterBlue/30',
+                title: 'EPIC DigiGrow',
+                subtitle: 'Enterprise SME & Corporate Banking',
+                accent: 'from-flutterBlue to-sky-500',
+                metrics: [
+                    { label: 'LankaQR & Payment Links', status: 'Active' },
+                    { label: 'Multi-Level Invoice Approval', status: 'Verified' },
+                    { label: 'Email & SMS Invoice Delivery', status: 'Automated' }
+                ],
+                stack: ['Flutter', 'Clean Architecture', 'Bloc/Cubit', 'LankaQR']
+            },
+            smartpay: {
+                badge: 'HARDENED FINTECH SECURITY',
+                badgeColor: 'text-fintechEmerald bg-fintechEmerald/15 border-fintechEmerald/30',
+                title: 'BOC SmartPay',
+                subtitle: 'Bank-Grade Digital Wallet & QR',
+                accent: 'from-emerald-500 to-teal-600',
+                metrics: [
+                    { label: 'AES Encryption & SSL Pinning', status: 'Protected' },
+                    { label: 'Root / Jailbreak / Hooking Guard', status: 'Enforced' },
+                    { label: 'Tamper & Emulator Detection', status: 'Shielded' }
+                ],
+                stack: ['Flutter', 'AES-256', 'SSL Pinning', 'Bloc/Cubit']
+            },
+            ting: {
+                badge: '3-APP REAL-TIME ECOSYSTEM',
+                badgeColor: 'text-amber-400 bg-amber-500/15 border-amber-500/30',
+                title: 'Ting Delivery Suite',
+                subtitle: 'Customer • Vendor • Rider Apps',
+                accent: 'from-sky-500 to-indigo-600',
+                metrics: [
+                    { label: 'Live WebSocket Order Sync', status: 'Real-Time' },
+                    { label: 'Google Maps Rider GPS Tracking', status: 'Live' },
+                    { label: 'Multi-Category Catalog & POS', status: 'Synced' }
+                ],
+                stack: ['Flutter', 'WebSockets', 'Google Maps', 'Firebase']
+            }
+        };
+
+        const servicesData = [
+            { title: 'Flutter Android & iOS Application Development', icon: 'fa-mobile-screen-button', desc: 'Single-codebase, native-performance cross-platform apps for Android & iOS.' },
+            { title: 'Mobile App Development from Scratch', icon: 'fa-compass-drafting', desc: 'Complete architecture setup, folder structuring, CI/CD, and MVP-to-production launch.' },
+            { title: 'Existing App Development & Maintenance', icon: 'fa-screwdriver-wrench', desc: 'Feature expansion, legacy refactoring, dependency upgrades, and long-term support.' },
+            { title: 'Figma to Flutter UI Development', icon: 'fa-pen-nib', desc: 'Pixel-perfect, responsive widgets translated faithfully from Figma & Adobe XD designs.' },
+            { title: 'REST API Integration', icon: 'fa-server', desc: 'Type-safe network layers using Dio & HTTP with interceptors, token refresh, and error handling.' },
+            { title: 'Firebase Integration', icon: 'fa-fire', desc: 'Cloud Messaging (FCM), Crashlytics, Analytics, Authentication, and real-time sync.' },
+            { title: 'WebSocket & Real-Time Communication', icon: 'fa-tower-broadcast', desc: 'Instant bi-directional order updates, live rider status, and real-time notifications.' },
+            { title: 'Google Maps & Location-Based Features', icon: 'fa-map-location-dot', desc: 'Live GPS tracking, geocoding, route polylines, geofencing, and address pickers.' },
+            { title: 'Payment Gateway Integration', icon: 'fa-credit-card', desc: 'Seamless in-app checkout, LankaQR workflows, digital wallets, and transaction verification.' },
+            { title: 'Bloc/Cubit State Management', icon: 'fa-cubes', desc: 'Predictable, testable, event-driven state architecture separating UI from business logic.' },
+            { title: 'Clean Architecture', icon: 'fa-layer-group', desc: 'Modular Presentation, Domain, and Data layers built for scalability and maintainability.' },
+            { title: 'Mobile App Security', icon: 'fa-shield-halved', desc: 'AES encryption, SSL pinning, root/jailbreak detection, obfuscation, and tamper protection.' },
+            { title: 'Bug Fixing & Performance Optimization', icon: 'fa-gauge-high', desc: 'Eliminating UI jank, memory leaks, and frame drops for smooth 60/120fps experiences.' },
+            { title: 'Third-Party SDK Integration', icon: 'fa-puzzle-piece', desc: 'Integrating banking SDKs, QR scanners, biometric auth, analytics, and native bridges.' },
+            { title: 'App Deployment & Publishing', icon: 'fa-cloud-arrow-up', desc: 'Release signing, obfuscated builds, and publishing to Google Play Store & Apple App Store.' }
+        ];
+
+        const projectsData = [
+            {
+                id: 'epic-digigrow',
+                number: '01',
+                category: 'fintech',
+                categoryLabel: 'SME Digital Banking',
+                title: 'EPIC DigiGrow — SME Banking Platform',
+                summary: 'A Flutter-based digital banking platform developed for Small and Medium Enterprises (SMEs) and corporate business customers, providing digital access to banking services through mobile and web applications.',
+                icon: 'fa-building-columns',
+                accentColor: 'text-flutterSky',
+                badgeBg: 'bg-flutterBlue/15 text-flutterSky border-flutterBlue/30',
+                features: [
+                    'Digital invoice creation',
+                    'Invoice approval and authorization workflows',
+                    'Invoice delivery through Email/SMS',
+                    'Payment tracking',
+                    'LankaQR and payment link support',
+                    'Invoice status and payment status management',
+                    'Invoice dashboard and filtering',
+                    'Invoice lifecycle management'
+                ],
+                role: [
+                    'Developing Flutter-based mobile features',
+                    'Implementing business requirements and user workflows',
+                    'Integrating REST APIs',
+                    'Implementing UI based on functional specifications',
+                    'Developing fintech features following the project\'s architecture and standards'
+                ],
+                security: [],
+                technologies: ['Flutter', 'Dart', 'Clean Architecture', 'Bloc/Cubit', 'REST APIs', 'Fintech', 'LankaQR']
+            },
+            {
+                id: 'boc-smartpay',
+                number: '02',
+                category: 'fintech',
+                categoryLabel: 'Digital Banking & Security',
+                title: 'BOC SmartPay — Digital Banking Application',
+                summary: 'A Flutter-based digital banking application developed for secure financial transactions with comprehensive runtime and cryptographic protections.',
+                icon: 'fa-shield-halved',
+                accentColor: 'text-fintechEmerald',
+                badgeBg: 'bg-fintechEmerald/15 text-fintechEmerald border-fintechEmerald/30',
+                features: [
+                    'Fund transfers',
+                    'Bill payments',
+                    'Merchant payments',
+                    'Account management',
+                    'QR payments',
+                    'QR scanning'
+                ],
+                role: [],
+                security: [
+                    'AES encryption',
+                    'SSL certificate pinning',
+                    'Jailbreak detection',
+                    'Hooking detection',
+                    'Debugging protection',
+                    'Source verification',
+                    'Code obfuscation',
+                    'Emulator/simulator detection',
+                    'Tamper detection'
+                ],
+                technologies: ['Flutter', 'Dart', 'Android', 'REST APIs', 'Clean Architecture', 'Bloc/Cubit']
+            },
+            {
+                id: 'ubgo',
+                number: '03',
+                category: 'fintech',
+                categoryLabel: 'Fintech Application',
+                title: 'UBGO — Fintech Application',
+                summary: 'Worked on key features of a fintech application including financial transactions and account management with secure mobile engineering practices.',
+                icon: 'fa-wallet',
+                accentColor: 'text-fintechEmerald',
+                badgeBg: 'bg-fintechEmerald/15 text-fintechEmerald border-fintechEmerald/30',
+                features: [
+                    'Fund transfers',
+                    'Bill payments',
+                    'Merchant payments',
+                    'Account management',
+                    'QR scanning'
+                ],
+                role: [],
+                security: ['Secure Mobile Development Standards'],
+                technologies: ['Flutter', 'Dart', 'Android', 'REST APIs', 'Secure Mobile Development']
+            },
+            {
+                id: 'ting-customer',
+                number: '04',
+                category: 'delivery',
+                categoryLabel: 'On-Demand Marketplace',
+                title: 'Ting Customer — On-Demand Marketplace',
+                summary: 'A multi-service delivery application developed for food, groceries, beverages, and pharmaceuticals with real-time order tracking.',
+                icon: 'fa-bag-shopping',
+                accentColor: 'text-flutterSky',
+                badgeBg: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
+                features: [
+                    'Product catalogs',
+                    'Real-time order processing',
+                    'Delivery workflows',
+                    'Payment integration',
+                    'Location services',
+                    'Order tracking'
+                ],
+                role: [],
+                security: [],
+                technologies: ['Flutter', 'Dart', 'Clean Architecture', 'REST APIs', 'WebSockets', 'Firebase']
+            },
+            {
+                id: 'ting-vendor',
+                number: '05',
+                category: 'delivery',
+                categoryLabel: 'Vendor Management',
+                title: 'Ting Vendor — Vendor Management Application',
+                summary: 'A mobile application designed to help vendors manage their businesses, product catalogs, operating hours, and incoming real-time orders.',
+                icon: 'fa-store',
+                accentColor: 'text-flutterSky',
+                badgeBg: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
+                features: [
+                    'Vendor registration and verification',
+                    'Profile management',
+                    'Product catalog management',
+                    'Pricing and availability management',
+                    'Operating hours',
+                    'Real-time order reception',
+                    'Accept/reject orders',
+                    'Order preparation status',
+                    'Order history and sales visibility'
+                ],
+                role: [],
+                security: [],
+                technologies: ['Flutter', 'Dart', 'REST APIs', 'WebSockets', 'Firebase']
+            },
+            {
+                id: 'ting-rider',
+                number: '06',
+                category: 'delivery',
+                categoryLabel: 'Delivery Partner App',
+                title: 'Ting Rider — Delivery Partner Application',
+                summary: 'A rider application supporting the complete delivery workflow from order assignment and GPS navigation to delivery completion.',
+                icon: 'fa-motorcycle',
+                accentColor: 'text-flutterSky',
+                badgeBg: 'bg-sky-500/15 text-sky-400 border-sky-500/30',
+                features: [
+                    'Rider authentication',
+                    'Availability management',
+                    'Order assignment',
+                    'Order acceptance',
+                    'GPS navigation',
+                    'Live location tracking',
+                    'Pickup and drop-off confirmation',
+                    'Delivery status updates'
+                ],
+                role: [],
+                security: ['Encrypted Rider Token & Secure Storage'],
+                technologies: ['Flutter', 'Dart', 'Google Maps', 'WebSockets', 'REST APIs', 'Secure Storage']
+            },
+            {
+                id: 'dlb-sweep',
+                number: '07',
+                category: 'consumer',
+                categoryLabel: 'Consumer Services',
+                title: 'DLB Sweep — Lottery Application',
+                summary: 'A Flutter-based mobile application that allows users to access lottery-related services, check daily results, and purchase tickets securely.',
+                icon: 'fa-ticket',
+                accentColor: 'text-amber-400',
+                badgeBg: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+                features: [
+                    'Daily lottery results',
+                    'Previous lottery results',
+                    'Lottery ticket purchasing',
+                    'REST API integration',
+                    'Structured state management',
+                    'Secure API communication'
+                ],
+                role: [],
+                security: ['Secure API Communication'],
+                technologies: ['Flutter', 'Dart', 'REST APIs', 'Bloc/Cubit']
+            }
+        ];
+
+        const skillsData = [
+            {
+                category: 'Mobile Development',
+                icon: 'fa-mobile-screen',
+                color: 'text-flutterSky',
+                items: ['Flutter', 'Dart', 'Android', 'XML']
+            },
+            {
+                category: 'Architecture & State Management',
+                icon: 'fa-sitemap',
+                color: 'text-flutterBlue',
+                items: ['Clean Architecture', 'Bloc', 'Cubit']
+            },
+            {
+                category: 'Security',
+                icon: 'fa-shield-halved',
+                color: 'text-fintechEmerald',
+                items: ['AES Encryption', 'SSL Pinning', 'Jailbreak/Root Detection', 'Obfuscation', 'Tamper Detection', 'Emulator Detection']
+            },
+            {
+                category: 'Networking',
+                icon: 'fa-network-wired',
+                color: 'text-sky-400',
+                items: ['REST APIs', 'Dio', 'HTTP', 'WebSockets']
+            },
+            {
+                category: 'Backend & Services',
+                icon: 'fa-cloud',
+                color: 'text-indigo-400',
+                items: ['Firebase', 'Secure Storage', 'Third-party SDK integration']
+            },
+            {
+                category: 'Design & Development Tools',
+                icon: 'fa-code-branch',
+                color: 'text-amber-400',
+                items: ['Figma', 'Adobe XD', 'Git', 'GitLab', 'GitHub', 'Bitbucket', 'Azure', 'Jira', 'Swagger']
+            }
+        ];
+
+        const whyWorkWithMeData = [
+            '3+ years of professional Flutter experience',
+            'Experience with real-world fintech applications',
+            'Experience with marketplace and delivery applications',
+            'Strong understanding of Clean Architecture',
+            'Experience with secure mobile development',
+            'REST API and real-time communication experience',
+            'Focus on clean and maintainable code',
+            'Strong problem-solving skills',
+            'Experience working with cross-functional teams',
+            'Commitment to delivering quality solutions'
+        ];
+
+        // ==========================================
+        // 2. RENDER FUNCTIONS
+        // ==========================================
+
+        function switchPhonePreview(key) {
+            const data = phonePreviews[key];
+            if (!data) return;
+
+            // Update tab button styles
+            document.querySelectorAll('.phone-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-flutterBlue', 'text-white');
+                btn.classList.add('text-slate-400');
+            });
+            const activeTab = document.getElementById(`tab-${key}`);
+            if (activeTab) {
+                activeTab.classList.remove('text-slate-400');
+                activeTab.classList.add('bg-flutterBlue', 'text-white');
+            }
+
+            const screen = document.getElementById('phone-screen-content');
+            screen.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] px-2.5 py-1 rounded-full border ${data.badgeColor} font-semibold">
+                            ${data.badge}
+                        </span>
+                        <span class="font-mono text-[10px] text-slate-400">9:41 AM</span>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-gradient-to-br ${data.accent} text-white shadow-lg">
+                        <div class="text-[11px] font-mono opacity-85">PRODUCTION MODULE</div>
+                        <div class="font-display font-extrabold text-xl mt-0.5">${data.title}</div>
+                        <div class="text-xs opacity-90 mt-1">${data.subtitle}</div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Active Capabilities</div>
+                        ${data.metrics.map(m => `
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10">
+                                <span class="text-xs text-slate-200 font-medium">${m.label}</span>
+                                <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-fintechEmerald/20 text-fintechEmerald font-semibold">${m.status}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-white/10">
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.stack.map(t => `
+                            <span class="font-mono text-[10px] px-2 py-0.5 rounded-md bg-slate-800 text-flutterSky border border-white/5">${t}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            grid.innerHTML = servicesData.map(service => `
+                <div class="glass-card rounded-2xl p-5 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-11 h-11 rounded-xl bg-flutterBlue/15 border border-flutterBlue/25 text-flutterSky flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid ${service.icon} text-base"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-white leading-snug">${service.title}</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1.5 leading-relaxed">${service.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects(filter = 'all') {
+            const grid = document.getElementById('projects-grid');
+            const filtered = filter === 'all' 
+                ? projectsData 
+                : projectsData.filter(p => p.category === filter);
+
+            grid.innerHTML = filtered.map(project => `
+                <article onclick="openProjectModal('${project.id}')" class="glass-card rounded-3xl p-6 flex flex-col justify-between cursor-pointer group transition-all duration-300 hover:-translate-y-1.5">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="font-mono text-xs px-3 py-1 rounded-full border ${project.badgeBg} font-semibold">
+                                ${project.categoryLabel}
+                            </span>
+                            <span class="font-mono text-xs text-slate-500">#${project.number}</span>
+                        </div>
+
+                        <div class="flex items-start gap-3.5 mb-3">
+                            <div class="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 ${project.accentColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid ${project.icon} text-lg"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-white group-hover:text-flutterSky transition-colors leading-snug">
+                                ${project.title}
+                            </h3>
+                        </div>
+
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            ${project.summary}
+                        </p>
+
+                        <!-- Highlighted Key Features Preview -->
+                        <div class="space-y-1.5 mb-5">
+                            <div class="font-mono text-[11px] uppercase tracking-wider text-slate-400">Key Highlights</div>
+                            ${project.features.slice(0, 4).map(f => `
+                                <div class="flex items-center gap-2 text-xs text-slate-300">
+                                    <i class="fa-solid fa-check text-fintechEmerald text-[10px]"></i>
+                                    <span>${f}</span>
+                                </div>
+                            `).join('')}
+                            ${project.features.length > 4 ? `
+                                <div class="text-xs font-mono text-flutterSky pt-0.5">+ ${project.features.length - 4} more features & specs...</div>
+                            ` : ''}
+                        </div>
+
+                        ${project.security.length > 1 ? `
+                            <div class="mb-4 px-3 py-2 rounded-xl bg-fintechEmerald/10 border border-fintechEmerald/25 flex items-center gap-2 text-xs text-fintechEmerald font-medium">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Includes ${project.security.length} Hardened Security Controls</span>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10">
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            ${project.technologies.map(tech => `
+                                <span class="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-obsidian border border-white/10 text-slate-300">${tech}</span>
+                            `).join('')}
+                        </div>
+                        <div class="flex items-center justify-between text-xs font-semibold text-flutterSky group-hover:translate-x-1 transition-transform">
+                            <span>Inspect Full Architecture & Features</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function filterProjects(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('bg-flutterBlue', 'text-white');
+                    btn.classList.remove('text-slate-400');
+                } else {
+                    btn.classList.remove('bg-flutterBlue', 'text-white');
+                    btn.classList.add('text-slate-400');
+                }
+            });
+            renderProjects(category);
+        }
+
+        function renderSkills() {
+            const grid = document.getElementById('skills-grid');
+            grid.innerHTML = skillsData.map(group => `
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 ${group.color} flex items-center justify-center">
+                            <i class="fa-solid ${group.icon}"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base text-white">${group.category}</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        ${group.items.map(skill => `
+                            <span class="font-mono text-xs px-3 py-1.5 rounded-xl bg-obsidian border border-white/10 text-slate-200 hover:border-flutterSky/50 transition-colors">
+                                ${skill}
+                            </span>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderWhyWorkWithMe() {
+            const grid = document.getElementById('why-me-grid');
+            grid.innerHTML = whyWorkWithMeData.map(item => `
+                <div class="glass-card rounded-2xl p-4 flex items-start gap-3">
+                    <div class="w-6 h-6 rounded-lg bg-fintechEmerald/15 text-fintechEmerald flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid fa-check text-xs"></i>
+                    </div>
+                    <span class="text-sm font-medium text-slate-200 leading-snug">${item}</span>
+                </div>
+            `).join('');
+        }
+
+        // ==========================================
+        // 3. MODAL & INTERACTIVE UTILITIES
+        // ==========================================
+
+        function openProjectModal(projectId) {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modal = document.getElementById('project-modal');
+            const body = document.getElementById('modal-body-content');
+
+            body.innerHTML = `
+                <div class="space-y-6">
+                    <div>
+                        <span class="font-mono text-xs px-3 py-1 rounded-full border ${project.badgeBg} font-semibold">
+                            ${project.categoryLabel}
+                        </span>
+                        <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-3">
+                            ${project.title}
+                        </h3>
+                        <p class="text-slate-300 text-sm sm:text-base mt-2 leading-relaxed">
+                            ${project.summary}
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-mono text-xs uppercase tracking-wider text-flutterSky font-semibold mb-3">
+                            Key Features & Functional Scope
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            ${project.features.map(f => `
+                                <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-obsidian/70 border border-white/5 text-xs sm:text-sm text-slate-200">
+                                    <i class="fa-solid fa-circle-check text-fintechEmerald mt-0.5"></i>
+                                    <span>${f}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    ${project.role.length > 0 ? `
+                        <div>
+                            <h4 class="font-mono text-xs uppercase tracking-wider text-flutterSky font-semibold mb-3">
+                                My Engineering Role
+                            </h4>
+                            <ul class="space-y-2">
+                                ${project.role.map(r => `
+                                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                                        <i class="fa-solid fa-code text-flutterSky mt-1"></i>
+                                        <span>${r}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+
+                    ${project.security.length > 0 ? `
+                        <div class="p-4 rounded-2xl bg-fintechEmerald/10 border border-fintechEmerald/25">
+                            <h4 class="font-mono text-xs uppercase tracking-wider text-fintechEmerald font-semibold mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>Security Practices Implemented</span>
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                ${project.security.map(s => `
+                                    <span class="font-mono text-xs px-3 py-1 rounded-lg bg-obsidian/90 text-fintechEmerald border border-fintechEmerald/30">
+                                        ${s}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <div class="pt-4 border-t border-white/10">
+                        <h4 class="font-mono text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">
+                            Technologies Used
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.technologies.map(t => `
+                                <span class="font-mono text-xs px-3 py-1.5 rounded-xl bg-flutterBlue/15 text-flutterSky border border-flutterBlue/30 font-medium">
+                                    ${t}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on backdrop click or Escape key
+        document.getElementById('project-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'project-modal') closeProjectModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeProjectModal();
+        });
+
+        // Mobile Navigation Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        function openContactDrawer() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                document.getElementById('client-name').focus();
+            }, 600);
+        }
+
+        // Scope Selector Pills
+        function selectScope(btn, value) {
+            document.querySelectorAll('.scope-pill').forEach(p => {
+                p.classList.remove('border-flutterBlue', 'bg-flutterBlue/20', 'text-white');
+                p.classList.add('border-white/10', 'bg-surface', 'text-slate-400');
+            });
+            btn.classList.remove('border-white/10', 'bg-surface', 'text-slate-400');
+            btn.classList.add('border-flutterBlue', 'bg-flutterBlue/20', 'text-white');
+            document.getElementById('selected-scope').value = value;
+        }
+
+        let formattedBriefText = '';
+
+        function handleProjectInquiry(e) {
+            e.preventDefault();
+            const scope = document.getElementById('selected-scope').value;
+            const name = document.getElementById('client-name').value.trim();
+            const email = document.getElementById('client-email').value.trim();
+            const details = document.getElementById('project-details').value.trim();
+
+            formattedBriefText = `Project Inquiry for Kaushalya Udani Jayasingha (Flutter Mobile Software Engineer)\n--------------------------------------------------\nClient: ${name} (${email})\nScope: ${scope}\nRequirements: ${details}`;
+
+            document.getElementById('inquiry-summary-text').textContent = `Thank you, ${name}. Your "${scope}" inquiry has been formatted and is ready to share directly with Kaushalya.`;
+            document.getElementById('project-inquiry-form').classList.add('hidden');
+            document.getElementById('inquiry-success').classList.remove('hidden');
+            showToast('Project brief prepared!');
+        }
+
+        function resetInquiryForm() {
+            document.getElementById('project-inquiry-form').reset();
+            document.getElementById('inquiry-success').classList.add('hidden');
+            document.getElementById('project-inquiry-form').classList.remove('hidden');
+        }
+
+        function copyTextFallback(text, successMsg) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg);
+            } catch (err) {
+                showToast('Unable to copy automatically.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function copyFormattedBrief() {
+            copyTextFallback(formattedBriefText, 'Project brief copied to clipboard!');
+        }
+
+        function copyProfileSummary() {
+            const summary = `Kaushalya Udani Jayasingha — Flutter Mobile Software Engineer (Sri Lanka)\n3+ Years Experience | Flutter | Dart | Clean Architecture | Bloc/Cubit | Fintech Security (AES, SSL Pinning) | Real-Time WebSockets & Google Maps\nFeatured Apps: EPIC DigiGrow, BOC SmartPay, UBGO, Ting Customer/Vendor/Rider, DLB Sweep.`;
+            copyTextFallback(summary, 'Engineer profile summary copied!');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        // Scroll Reveal Observer
+        function initScrollReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.08 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // Initialize Page
+        window.addEventListener('DOMContentLoaded', () => {
+            switchPhonePreview('digigrow');
+            renderServices();
+            renderProjects('all');
+            renderSkills();
+            renderWhyWorkWithMe();
+            initScrollReveal();
+        });
+    </script>
+</body>
+</html>
